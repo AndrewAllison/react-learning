@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, NavLink, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 import Home from '../features/Home';
 import About from '../features/About';
@@ -9,11 +9,18 @@ import { BarsIcon } from 'react-line-awesome';
 import './App.css';
 
 const App: React.FC<RouteComponentProps> = () => {
+    const [menu_state, setMenuState] = useState('');
+    const toggleMenuState = () => {
+        setMenuState(menu_state === 'open' ? '' : 'open');
+    };
     return (
         <Router>
             <div className={'toolbar'}>
-                <div className={'navigation'}>
+                <div className={`navigation ${menu_state}`}>
                     <ul className={'navigation-list'}>
+                        <li className={'navigation-link right responsive'} onClick={() => toggleMenuState()}>
+                            <BarsIcon className={'menu-icon'}/>
+                        </li>
                         <li className={'navigation-link'}>
                             <NavLink exact={true} activeClassName='is-active' to="/">Home</NavLink>
                         </li>
@@ -22,9 +29,6 @@ const App: React.FC<RouteComponentProps> = () => {
                         </li>
                         <li className={'navigation-link'}>
                             <NavLink activeClassName='is-active' to="/topics">Topics</NavLink>
-                        </li>
-                        <li className={'navigation-link right'}>
-                            <BarsIcon className={'menu-icon'}/>
                         </li>
                     </ul>
                 </div>

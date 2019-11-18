@@ -28,8 +28,8 @@ body {
     margin-left: 2.5rem;
     position: relative;
 }
-
 .navigation .navigation-link {
+    color: #9b4dca;
     display: block;
     float: left;
     height: 5.2rem;
@@ -55,7 +55,6 @@ body {
 
 .navigation .navigation-link a:hover {
     border-bottom: #9b4dca 2px solid;
-    color: #9b4dca;
     font-weight: 400;
 }
 .navigation .navigation-link a.is-active {
@@ -65,4 +64,28 @@ body {
 
 .main-container {
     padding: 1.6rem;
+}
+
+.navigation .navigation-link.responsive {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navigation .navigation-link  {display: none;}
+    .navigation .navigation-link.responsive {
+        display: block;
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+    .navigation.open .navigation-link { height: unset; }
+    .navigation.open .navigation-link li { background: #ffffff; width: 100%; }
+    .navigation.open .navigation-link a { background: #ffffff; width: 100%; }
+    .navigation.open .navigation-link {
+        float: none;
+        display: block;
+        text-align: left;
+
+    }
 }
