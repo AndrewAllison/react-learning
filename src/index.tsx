@@ -11,12 +11,16 @@ import '../node_modules/milligram/dist/milligram.css';
 
 export const history = createBrowserHistory();
 
+history.listen((location) => {
+    console.log(location);
+});
+
 ReactDOM.render(
     <Router history={history}>
         {/*uses https://github.com/pbeshai/use-query-params*/}
         <QueryParamProvider ReactRouterRoute={Route}>
             <ScrollToTop>
-                <App />
+                <App/>
             </ScrollToTop>
         </QueryParamProvider>
     </Router>,

@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, NavLink, Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
-import Home from '../features/Home';
+import {
+    BrowserRouter as Router,
+    NavLink,
+    Route,
+    RouteComponentProps,
+    Switch,
+    useHistory,
+    withRouter
+} from 'react-router-dom';
+import Home from '../features/Home/Home';
 import About from '../features/About';
 import Topics from '../features/Topics/Topics';
 
 import { BarsIcon } from 'react-line-awesome';
 
 import './App.css';
+import GlobalStyles from '../styles/Global';
 
 const App: React.FC<RouteComponentProps> = () => {
     const [menu_state, setMenuState] = useState('');
+
     const toggleMenuState = () => {
         setMenuState(menu_state === 'open' ? '' : 'open');
     };
+
     return (
         <Router>
             <div className={'toolbar'}>
@@ -45,6 +56,7 @@ const App: React.FC<RouteComponentProps> = () => {
                         </Route>
                     </Switch>
                 </div>
+                <GlobalStyles/>
             </div>
         </Router>
     );
