@@ -1,5 +1,7 @@
-import React from 'react';
+import React  from 'react';
 import Profile from './Profile';
+import Clock from './Clock';
+import ReactDOM from 'react-dom';
 
 const ChildComp: React.FC<any> = (props) => {
     console.log(props);
@@ -12,8 +14,18 @@ const ChildComp: React.FC<any> = (props) => {
     return (
         <div>
             <Profile user={user}/>
+            <Clock />
         </div>
     )
+
+   //  function tick() {
+   //      ReactDOM.render(
+   //          {/*<Clock date={new Date()}/>,*/}
+   //          document.getElementById('root')
+   //      )
+   //  }
+   // setInterval(tick, 1000);
 };
 
 export default ChildComp;
+
