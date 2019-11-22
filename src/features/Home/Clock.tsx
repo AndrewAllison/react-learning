@@ -1,7 +1,7 @@
 import React from 'react';
 
 class Clock extends React.Component<any, any> {
-    timerID:any;
+    timerID: any;
 
     constructor(props: any) {
         super(props);
@@ -14,7 +14,7 @@ class Clock extends React.Component<any, any> {
             1000
         );
     }
-    
+
     componentWillUnmount(): void {
         clearInterval(this.timerID);
     }
@@ -25,12 +25,16 @@ class Clock extends React.Component<any, any> {
         });
     }
 
+    iClicked = (id: number) => {
+        console.log('This is:', this, id)
+    }
+
     render() {
-        console.log(this.state);
         return (
             <div>
                 <h1>Hello, world!</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <button onClick={this.iClicked.bind(this, 12)}>Click Me</button>
+                <h2> It is {this.state.date.toLocaleTimeString()}.</h2>
             </div>
         );
     }
