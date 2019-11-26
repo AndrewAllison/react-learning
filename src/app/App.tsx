@@ -11,6 +11,7 @@ import {
 import Home from '../features/Home/Home';
 import About from '../features/About';
 import Topics from '../features/Topics/Topics';
+import Contact from '../features/Contact'
 
 import { BarsIcon } from 'react-line-awesome';
 
@@ -41,6 +42,9 @@ const App: React.FC<RouteComponentProps> = () => {
                         <li className={'navigation-link'}>
                             <NavLink activeClassName='is-active' to="/topics">Topics</NavLink>
                         </li>
+                        <li className={'navigation-link'}>
+                            <NavLink activeClassName='is-active' to="/contact">Contact</NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className={'main-container'}>
@@ -50,6 +54,9 @@ const App: React.FC<RouteComponentProps> = () => {
                         </Route>
                         <Route path="/topics">
                             <Topics/>
+                        </Route>
+                        <Route path="/contact">
+                            <Contact/>
                         </Route>
                         <Route path="/">
                             <Home/>
