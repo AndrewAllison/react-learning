@@ -5,7 +5,6 @@ import {
     Route,
     RouteComponentProps,
     Switch,
-    useHistory,
     withRouter
 } from 'react-router-dom';
 import Home from '../features/Home/Home';
@@ -17,6 +16,7 @@ import { BarsIcon } from 'react-line-awesome';
 
 import './App.css';
 import GlobalStyles from '../styles/Global';
+import Calculator from '../features/Calculator/Calculator';
 
 const App: React.FC<RouteComponentProps> = () => {
     const [menu_state, setMenuState] = useState('');
@@ -45,6 +45,9 @@ const App: React.FC<RouteComponentProps> = () => {
                         <li className={'navigation-link'}>
                             <NavLink activeClassName='is-active' to="/contact">Contact</NavLink>
                         </li>
+                        <li className={'navigation-link'}>
+                            <NavLink activeClassName='is-active' to="/calculator">Calculator</NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div className={'main-container'}>
@@ -57,6 +60,9 @@ const App: React.FC<RouteComponentProps> = () => {
                         </Route>
                         <Route path="/contact">
                             <Contact/>
+                        </Route>
+                        <Route path="/calculator">
+                            <Calculator/>
                         </Route>
                         <Route path="/">
                             <Home/>
